@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>博客來書籍查詢 API</title>
+    <style>
+        body { font-family: "Segoe UI", sans-serif; line-height: 1.6; padding: 40px; max-width: 900px; margin: auto; }
+        h1, h2 { color: #2c3e50; }
+        pre { background-color: #f4f4f4; padding: 10px; border-left: 4px solid #ccc; overflow-x: auto; }
+        code { background-color: #eee; padding: 2px 4px; border-radius: 4px; }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        table { width: 100%; border-collapse: collapse; margin-top: 1em; }
+        table, th, td { border: 1px solid #ccc; }
+        th, td { padding: 8px; text-align: left; }
+    </style>
+</head>
+<body>
+    <h1>📚 博客來書籍查詢 API（FastAPI）</h1>
+    <p>一個基於 Python 的 FastAPI 專案，可查詢博客來書籍的詳細資訊、排行榜與條件式搜尋結果。支援書籍介紹、作者資訊、出版細節與分類樹結構，並可回傳 JSON 格式供前端使用。</p>
+    <a href="/docs" class="btn">前往 API Swagger </a>
+    <h2>🚀 專案特色</h2>
+    <ul>
+        <li>🔍 支援依書名、作者、出版社、價格、出版日期等條件進行搜尋</li>
+        <li>📖 提供書籍詳細資訊（含作者、分類、頁數、尺寸等）</li>
+        <li>🧾 可查詢書籍排行榜（暢銷榜、預購榜、新書榜等）</li>
+        <li>⚡ 使用非同步爬蟲（httpx + BeautifulSoup）加快查詢速度</li>
+        <li>✅ API 規格完整，內建 OpenAPI/Swagger 文件（啟動後於 /docs）</li>
+    </ul>
+
+    <h2>📂 API 路徑總覽</h2>
+    <table>
+        <tr><th>方法</th><th>路徑</th><th>說明</th></tr>
+        <tr><td>GET</td><td>/api/book/{pd_id}</td><td>查詢單本書籍詳細資料</td></tr>
+        <tr><td>GET</td><td>/api/book/introduce/{pd_id}</td><td>查詢書籍簡介</td></tr>
+        <tr><td>GET</td><td>/api/books/search</td><td>多條件搜尋書籍</td></tr>
+        <tr><td>GET</td><td>/api/books/search/stats</td><td>查詢搜尋結果的統計資料</td></tr>
+        <tr><td>GET</td><td>/api/books/rank</td><td>查詢排行榜（每日、每週）</td></tr>
+    </table>
+
+    <h2>🏗 專案架構</h2>
+    <pre><code>book_model.py       # 定義所有 API 的 Pydantic 資料模型
+book_info.py        # 非同步爬蟲：抓取書籍詳細資訊與簡介
+book_searcher.py    # 非同步爬蟲：搜尋書籍與取得排行榜
+main.py             # FastAPI 主路由設定</code></pre>
+
+    <h2>🧪 快速啟動</h2>
+    <pre><code>pip install -r requirements.txt
+uvicorn main:app --host 0.0.0.0 --port 8000</code></pre>
+
+    <h2>☁️ 推薦部署方式</h2>
+    <p>建議使用 <a href="https://render.com" target="_blank">Render</a> + GitHub Education，可快速部署此專案並綁定自訂網域。</p>
+
+    <h2>📝 API 範例</h2>
+    <pre><code>GET /api/book/0011016236</code></pre>
+    <pre><code>回傳:
+{
+  "ISBN": "9789573286388",
+  "title": "問ChatGPT也不會的Python量化交易聖經",
+  "price": 450,
+  "authors": ["張峮瑋", "黃子靜"]
+}</code></pre>
+
+
+</body>
+</html>

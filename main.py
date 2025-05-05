@@ -16,10 +16,9 @@ from fastapi.responses import HTMLResponse
 
 @app.get("/", response_class=HTMLResponse)
 async def home():
-    return """
-    <h1>📘 Welcome to the Book Search API</h1>
-    <p>請前往 <a href='/docs'>/docs</a> 使用 Swagger API 文件介面。</p>
-    """
+    with open("index.html", encoding="utf-8") as f:
+        html_content = f.read()
+    return HTMLResponse(content=html_content)
 
 searcher = AsyncBookSearcher()
 
