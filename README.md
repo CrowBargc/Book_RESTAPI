@@ -85,6 +85,6 @@ GET /api/book/0011016236
 
 ---
 
-## 👨‍🎓 作者
+## 👨‍🎓 代處理問題
 
-由 GitHub Education 學生開發，使用 httpx + FastAPI + BeautifulSoup 實作，適合學術、練習或專題展示使用。
++ 博客來網站，會因為高頻率的訪問網站，而封鎖IP。
