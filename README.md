@@ -37,35 +37,6 @@ main.py             # FastAPI 主路由設定
 
 ---
 
-## 🧪 快速啟動（本地執行）
-
-1️⃣ 安裝依賴：
-```bash
-pip install -r requirements.txt
-```
-
-2️⃣ 執行 API：
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000
-```
-
-3️⃣ 開啟 Swagger 文件：
-[http://localhost:8000/docs](http://localhost:8000/docs)
-
----
-
-## ☁️ 部署方式（推薦 Render + GitHub Education）
-
-1. 將此專案 Push 至 GitHub Repo  
-2. 前往 [Render](https://render.com) 並登入 → New Web Service  
-3. 設定指令：
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `uvicorn main:app --host 0.0.0.0 --port 10000`
-   - Python 版本：需在 `render.yaml` 或 `runtime.txt` 中指定（如 `python-3.11.8`）
-4. 綁定免費子網域或自訂網域
-
----
-
 ## 📝 API 範例（查詢書籍）
 
 ```bash
