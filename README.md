@@ -1,6 +1,6 @@
 # 📚 博客來書籍查詢 API（FastAPI）
 
-基於 Python 的 FastAPI 專案，可查詢 [博客來](https://www.books.com.tw/) 書籍的詳細資訊、排行榜與條件式搜尋結果。支援書籍介紹、作者資訊、出版細節與分類樹結構，並可回傳 JSON 格式供前端使用。
+一個基於 Python 的 FastAPI 專案，可查詢 [博客來](https://www.books.com.tw/) 書籍的詳細資訊、排行榜與條件式搜尋結果。支援書籍介紹、作者資訊、出版細節與分類樹結構，並可回傳 JSON 格式供前端使用。
 
 ---
 
@@ -85,6 +85,6 @@ GET /api/book/0011016236
 
 ---
 
-## 👨‍🎓 代處理問題
+## 👨‍🎓 作者
 
-+ 博客來網站，會因為高頻率的訪問網站，而封鎖IP。
+由 GitHub Education 學生開發，使用 httpx + FastAPI + BeautifulSoup 實作，適合學術、練習或專題展示使用。
