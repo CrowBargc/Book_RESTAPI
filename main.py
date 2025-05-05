@@ -12,6 +12,15 @@ app = FastAPI(
     version="1.0",
     description="提供書籍詳細資料、相關書籍列表、書籍排行榜等資料"
 )
+from fastapi.responses import HTMLResponse
+
+@app.get("/", response_class=HTMLResponse)
+async def home():
+    return """
+    <h1>📘 Welcome to the Book Search API</h1>
+    <p>請前往 <a href='/docs'>/docs</a> 使用 Swagger API 文件介面。</p>
+    """
+
 searcher = AsyncBookSearcher()
 
 # 加入 CORS 中介層
